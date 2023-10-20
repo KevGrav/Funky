@@ -1,46 +1,36 @@
 // YOUR CODE GOES HERE!!!
 /*************************/
-function getFirstName(person){
-  return person.firstName;
-}
+const getFirstName = (person) => person.firstName;
 
-function getLastName(person){
-  return person.lastName;
-}
+const getLastName = (person) => person.lastName;
 
-function getFullName(person){
-  return person.firstName + " " + person.lastName;
-}  
+const getFullName = (person) => person.firstName + " " + person.lastName; 
 
-function setFirstName(person, newFirstName){
-  person.firstName = newFirstName;
-}
+const setFirstName = (person, newFirstName) => person.firstName = newFirstName;
 
-function setAge(person, newAge){
-  person.age = newAge;
-}
+const setAge = (person, newAge) =>  person.age = newAge;
 
-function giveBirthday(person){
-  if (person.firstName === 'Baby'){
+const giveBirthday = (person) => {
+  if (!person.age){
     person.age = 1
   } else{
-    person.age = person.age + 1;
+    person.age += 1;
   }
 }
 
-function marry(person1, person2){
-  person1.isMarried = true;
-  person2.isMarried = true;
+const marry = (person1, person2) => {
+  person1.married = true;
+  person2.married = true;
   person1.spouseName = getFullName(person2);
   person2.spouseName = getFullName(person1);
    
 }
 
-function divorce(person1, person2){
-  person1.isMarried = false;
-  person2.isMarried = false;
-  person1.spouseName = null;
-  person2.spouseName = null;
+const divorce = (person1, person2) => {
+  person1.married = false;
+  person2.married = false;
+  delete person1.spouseName;
+  delete person2.spouseName;
 }
 
 /****************************/
